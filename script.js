@@ -1,3 +1,46 @@
+const {createApp} = Vue
+createApp({
+    data(){
+        return{
+            currentImage: 0,
+            autoScroll: null,
+            games: {
+                images: [
+                    'img/01.webp', //0
+                    'img/02.webp', //1
+                    'img/03.webp', //2
+                    'img/04.webp', //3
+                    'img/05.webp', //4
+                ],
+                title: 'nome gioco',
+                text: 'testo lungo',
+            }
+        }
+    },
+    methods: {
+
+        // su
+        prev(){
+            this.currentImage--
+            if(this.currentImage < 0){
+                this.currentImage = this.games.images.length - 1
+            }
+        },
+
+        // giu
+        next(){
+            this.currentImage++
+            if(this.currentImage > this.games.images.length - 1){
+                this.currentImage = 0
+            }
+        },
+        
+    }
+}).mount('#app')
+
+
+
+
 // const slides = [
 // {
 //     image: 'img/01.webp',
@@ -22,24 +65,4 @@
 //     }
 // ];
 
-const {createApp} = Vue
-createApp({
-    data(){
-        return{
-            games: {
-                images: [
-                    'img/01.webp', //0
-                    'img/02.webp', //1
-                    'img/03.webp', //2
-                    'img/04.webp', //3
-                    'img/05.webp', //4
-                ],
-                title: 'nome gioco',
-                text: 'testo lungo',
-            }
-        }
-    },
-    methods: {
 
-    }
-}).mount('#app')
