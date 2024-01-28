@@ -4,7 +4,11 @@
     box-sizing: border-box;
 }
 
-.container {
+body {
+    background-color: rgb(50, 50, 50);
+}
+
+.contenitore {
     height: 100vh;
     display: flex;
     justify-content: center;
