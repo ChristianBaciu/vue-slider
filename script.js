@@ -4,31 +4,35 @@ createApp({
         return{
             currentImage: 0,
             autoScroll: null,
-            games:{
-                images:[
-                    'img/01.webp', //0
-                    'img/02.webp', //1
-                    'img/03.webp', //2
-                    'img/04.webp', //3
-                    'img/05.webp', //4
-                ],
-                // title:[
-                //     '  ', //0
-                //     '  ', //1
-                //     '  ', //2
-                //     '  ', //3
-                //     '  ', //4
-                // ],
-                // text:[
-                //     '  ', //0
-                //     '  ', //1
-                //     '  ', //2
-                //     '  ', //3
-                //     '  ', //4
-                // ],
-                title: 'nome gioco',
-                text: 'testo lungo',
-            }
+            slides:[
+                {
+                    image: 'img/01.webp',
+                    game: 'Spiderman',
+                    text: 'Spiderman Spiderman Spiderman Spiderman',
+                },
+                {
+                    image: 'img/02.webp',
+                    game: 'Ratchet & Clank',
+                    text: 'Ratchet & Clank Ratchet & Clank Ratchet & Clank Ratchet & Clank',
+                },
+                {
+                    image: 'img/03.webp',
+                    game: 'Fortnite',
+                    text: 'Fortnite Fortnite Fortnite Fortnite',
+                },   
+                {
+                    image: 'img/04.webp',
+                    game: 'Stray',
+                    text: 'Stray Stray Stray Stray',
+                },   
+                {
+                    image: 'img/05.webp',
+                    game: 'Avengers',
+                    text: 'Avengers Avengers Avengers Avengers',
+                },
+    
+            ]
+
         }
     },
     created(){
@@ -36,18 +40,19 @@ createApp({
     },
     methods:{
 
+        
         // su
         prev(){
             this.currentImage--
             if(this.currentImage < 0){
-                this.currentImage = this.games.images.length - 1
+                this.currentImage = this.slides.length - 1
             }
         },
 
         // giu
         next(){
             this.currentImage++
-            if(this.currentImage > this.games.images.length - 1){
+            if(this.currentImage > this.slides.length - 1){
                 this.currentImage = 0
             }
         },

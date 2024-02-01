@@ -17,21 +17,23 @@
             <div class="slider-wrapper" @mouseover="stopInterval" @mouseleave="activeInterval" tabindex="0">
 
                 <div class="item">
-                    <img :src="games.images[currentImage]" alt="Spiderman" />
+                    <img :src="slides[currentImage].image" alt="Spiderman" />
                     <div class="text">
-                        <h3> {{games.title}} </h3>
-                        <p> {{games.text}} </p>
+                        <h3> {{slides[currentImage].game}} </h3>
+                        <p> {{slides[currentImage].text}} </p>
                     </div>
                 </div>
 
                 <div class="thumbs">
                     <div class="prev" @click="prev"></div>
                     <div class="next" @click="next"></div>
-                    <div class="thumb">
-                        <img v-for="(image, index) in games.images" :src="image"
-                        class="thumb"
-                        :class="(currentImage === index) ? `active` : '' "
-                        @click="changeImage(index)" alt="" />
+
+                    <div class="thumb"
+                    v-for="(element, index) in slides"
+                    :key="index"
+                    :class="index === currentImage ? 'active' : '' ">
+                    <!-- active immagine scelta -->
+                    <img :src="element.image" alt="img" @click="changeImage(index)">
                     </div>
                 </div>
 
